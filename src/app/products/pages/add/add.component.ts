@@ -6,14 +6,12 @@ import { FormBuilder, Validators } from '@angular/forms';
   templateUrl: './add.component.html',
   styleUrls: ['./add.component.css'],
 })
-export class AddComponent implements OnInit {
+export class AddComponent {
   myForm = this.fb.group({
     name: ['', Validators.required],
   });
 
   constructor(private fb: FormBuilder) {}
-
-  ngOnInit(): void {}
 
   notValid(field: string) {
     return this.myForm.get(field)?.invalid || false;
