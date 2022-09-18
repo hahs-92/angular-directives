@@ -1,10 +1,22 @@
-import { Directive, ElementRef, Input, OnInit, Renderer2 } from '@angular/core';
+import {
+  Directive,
+  ElementRef,
+  Input,
+  OnChanges,
+  OnInit,
+  Renderer2,
+  SimpleChanges,
+} from '@angular/core';
 
 @Directive({
   selector: '[MsgErr]',
 })
-export class MsgErrDirective implements OnInit {
-  @Input() color: string = 'red';
+export class MsgErrDirective implements OnInit, OnChanges {
+  //@Input() color: string = 'red';
+  @Input() set color(valor: string) {
+    this.renderer.setStyle(this.htmlElement.nativeElement, 'color', valor);
+  }
+
   @Input() message: string = '';
 
   htmlElement: ElementRef<HTMLElement>;
@@ -13,14 +25,30 @@ export class MsgErrDirective implements OnInit {
     private el: ElementRef<HTMLElement>,
     private renderer: Renderer2
   ) {
-    console.log(el.nativeElement);
-
     this.htmlElement = el;
   }
 
   ngOnInit(): void {
-    this.setColor();
+    // this.setColor();
     this.setMessage();
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    // if (changes['message']) {
+    //   this.message = changes['message'].currentValue;
+    //   this.renderer.setProperty(
+    //     this.htmlElement.nativeElement,
+    //     'innerText',
+    //     this.message
+    //   );
+    // }
+    // if (changes['color']) {
+    //   this.renderer.setStyle(
+    //     this.htmlElement.nativeElement,
+    //     'color',
+    //     this.color
+    //   );
+    // }
   }
 
   setColor() {

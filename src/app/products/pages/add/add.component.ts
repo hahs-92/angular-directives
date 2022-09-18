@@ -11,9 +11,17 @@ export class AddComponent {
     name: ['', Validators.required],
   });
 
+  color: string = '';
+
   constructor(private fb: FormBuilder) {}
 
   notValid(field: string) {
     return this.myForm.get(field)?.invalid || false;
+  }
+
+  changeColor() {
+    this.color = '#xxxxxx'.replace(/x/g, (y) =>
+      ((Math.random() * 16) | 0).toString(16)
+    );
   }
 }

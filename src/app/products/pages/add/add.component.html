@@ -14,7 +14,7 @@
     <div class="col-auto">
       <span
         MsgErr
-        color="tomato"
+        [color]="color"
         message="Este campo es requerido"
         *ngIf="notValid('name')"
       ></span>
@@ -23,6 +23,7 @@
     <div class="row mt-3">
       <div class="col">
         <button class="btn btn-primary">Guardar</button>
+        <button (click)="changeColor()" class="btn">Cambiar color</button>
       </div>
     </div>
   </section>
