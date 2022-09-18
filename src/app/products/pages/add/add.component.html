@@ -12,9 +12,12 @@
     </div>
 
     <div class="col-auto">
-      <span MsgErr color="tomato" *ngIf="notValid('name')" class="form-text"
-        >Este campo es requerido</span
-      >
+      <span
+        MsgErr
+        color="tomato"
+        message="Este campo es requerido"
+        *ngIf="notValid('name')"
+      ></span>
     </div>
 
     <div class="row mt-3">
