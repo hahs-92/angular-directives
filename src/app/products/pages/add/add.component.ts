@@ -11,7 +11,7 @@ export class AddComponent {
     name: ['', Validators.required],
   });
 
-  color: string = '';
+  color: string = 'tomato';
 
   constructor(private fb: FormBuilder) {}
 

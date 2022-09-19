@@ -16,7 +16,7 @@
         MsgErr
         [color]="color"
         message="Este campo es requerido"
-        *ngIf="notValid('name')"
+        [valid]="!notValid('name')"
       ></span>
     </div>
 
